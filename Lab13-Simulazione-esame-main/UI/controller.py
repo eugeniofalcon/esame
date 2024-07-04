@@ -35,7 +35,7 @@ class Controller:
         for p in self._model.get_sum_weight_per_node():
              self._view.txt_result.controls.append(ft.Text(f"Nodo {p[0]}, somma pesi su archi ={p[1]}"))
 
-        #self._view._btnCalcola.disabled = False
+        self._view.btn_path.disabled = False
         self._view.update_page()
 
 
@@ -69,6 +69,10 @@ class Controller:
             self._shape = None
         else:
             self._shape = e.control.data
+
+        if self._shape is not None and self._age is not None:
+            self._view.btn_graph.disabled = False
+            self._view.update_page()
     
     def loadAnni(self, dd: ft.Dropdown()): # type: ignore
 
@@ -87,6 +91,10 @@ class Controller:
             self._age = None
         else:
             self._age = e.control.data
+
+        if self._shape is not None and self._age is not None:
+            self._view.btn_graph.disabled = False
+            self._view.update_page()
 
     def loadStates(self, dd: ft.Dropdown()): # type: ignore
 
@@ -123,3 +131,15 @@ class Controller:
     ################ Aiuti con il bottone ########################
     def leggi_tendina(self, e):
         self._input = int(e.control.value)
+
+    
+    def get_qualcosa(self, e):
+        #pd = self._view.dd_periodo.value
+        if self._input is None:
+            self._view.create_alert("Selezionare...")
+            return
+        #studenti = self._model.get_studenti_corso(self._codins)
+        #self._view.lst_result.controls.clear()
+        #for studente in studenti:
+        #    self._view.lst_result.controls.append(ft.Text(studente))
+        #self._view.update_page()
