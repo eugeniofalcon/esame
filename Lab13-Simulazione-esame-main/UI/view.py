@@ -38,7 +38,7 @@ class View(ft.UserControl):
 
 
         # button for the "creat graph" reply
-        self.btn_graph = ft.ElevatedButton(text="Crea Grafo", on_click=self._controller.handle_graph)
+        self.btn_graph = ft.ElevatedButton(text="Crea Grafo", on_click=self._controller.handle_graph, disabled=True)
         row1 = ft.Row([self.ddyear,self.ddshape, self.btn_graph],
                       alignment=ft.MainAxisAlignment.CENTER)
         self._page.controls.append(row1)
@@ -50,7 +50,7 @@ class View(ft.UserControl):
         self._page.controls.append(self.txt_result)
         self._page.update()
 
-        self.btn_path = ft.ElevatedButton(text="Calcola percorso", on_click=self._controller.handle_path)
+        self.btn_path = ft.ElevatedButton(text="Calcola percorso", on_click=self._controller.handle_path, disabled=True)
 
         row2 = ft.Row([self.btn_path],
                       alignment=ft.MainAxisAlignment.CENTER)
