@@ -53,7 +53,6 @@ class Model:
     def addEdges2(self):
         self._grafo.clear_edges()
 
-        # Assumiamo che _sightingList sia ordinata per datetime
         self._sightingList.sort(key=lambda s: s.datetime)
         
         for i in range(len(self._sightingList) - 1):
@@ -124,7 +123,6 @@ class Model:
 
 ##### RICORSIONE #####
 
-
     def computePath(self):
         self.path = []
         self.path_edge = []
@@ -182,3 +180,7 @@ class Model:
 
     def get_edges(self):
         return list(self._grafo.edges(data=True))
+    
+    #getting shortest path
+    #print(nx.dijkstra_path(G, 0, 8))
+    #print(nx.dijkstra_path_length(G, 0, 7))
